@@ -1,0 +1,29 @@
+import 'todo.dart';
+
+class TodoRepository {
+  final List<Todo> _todos = [];
+  List<Todo> getAll() {
+    return _todos;
+  }
+
+  void add(String title) {
+    if (title.trim().isEmpty) {
+      throw ArgumentError(
+        "Название задачи не может быть пустым",
+      );
+    }
+
+    Todo todo = Todo(title.trim());
+    _todos.add(todo);
+  }
+
+  void complete(int id) {
+    for (var todo in _todos) {
+      if (todo.id == id) {
+        todo.isDone = true;
+        return;
+      }
+    }
+    throw ArgumentError("Задача с id $id не найдена");
+  }
+}
