@@ -31,7 +31,7 @@ void main() {
 }
 
 void printMenu() {
-  print("Консольное приложение TODO");
+  print(yellowPen("Консольное приложение TODO"));
   print("Команды:");
   print(" add <текст> - добавить задачу");
   print(" list        - показать список");
@@ -112,7 +112,7 @@ bool handleCommand(TodoRepository repo, String input) {
         print("неизвестная команда");
     }
   } catch (e) {
-    print("Ошибка: $e");
+    print(redPen("Ошибка: $e"));
   }
   return false;
 }
