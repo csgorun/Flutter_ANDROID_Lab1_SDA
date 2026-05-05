@@ -1,6 +1,14 @@
 import 'dart:io';
 import 'package:todo_app/todo_repository.dart';
 import 'package:todo_app/todo.dart';
+import 'package:ansicolor/ansicolor.dart';
+
+
+final AnsiPen greenPen = AnsiPen()..green();
+final AnsiPen redPen = AnsiPen()..red();
+final AnsiPen bluePen = AnsiPen()..blue();
+final AnsiPen yellowPen = AnsiPen()..yellow();
+
 
 void main() {
   TodoRepository repo = TodoRepository();
@@ -81,7 +89,7 @@ void deleteCommand(TodoRepository repo, List<String> parts) {
 }
 
 bool handleCommand(TodoRepository repo, String input) {
-  List<String> parts = input.split(" ")
+  List<String> parts = input.split(" ");
   String command = parts[0].toLowerCase();
   try {
     switch (command) {
